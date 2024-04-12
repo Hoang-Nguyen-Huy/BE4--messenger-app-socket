@@ -117,12 +117,15 @@ async function getRealChatData() {
 
             if (existingSenderIndex !== -1) {
                 // Nếu người gửi đã tồn tại, thêm tin nhắn vào đầu mảng messages của người đó
-                realChatData[existingSenderIndex].messages.unshift(new ChatMessageDto(chatMessage, timestamp, user));
+                realChatData[existingSenderIndex].messages.unshift(chatMessage);
             } else {
                 // Nếu người gửi chưa tồn tại, tạo một entry mới trong realChatData
-                realChatData.unshift(new RealChatMessageDto(user, [new ChatMessageDto(chatMessage, timestamp, user)]));
+                realChatData.unshift(new RealChatMessageDto(user, [chatMessage]));
             }
         }
+
+        console.log(realChatData);
+
         return realChatData;
     } catch(error) {
         console.error('Error getting real chat data: ', error);
