@@ -4,8 +4,6 @@ const { Server } = require('socket.io');
 const { createAdapter, setupPrimary } = require('@socket.io/cluster-adapter');
 const axios = require('axios');
 const crypto = require('crypto');
-const UserProfileDto = require('./dto/user-profile.dto');
-const SendMessageDto = require('./dto/send-message.dto');
 const RealChatMessageDto = require('./dto/real-chat-message.dto');
 const ChatMessageDto = require('./dto/chat-message.dto');
 
